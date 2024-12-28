@@ -130,7 +130,7 @@ U = st.selectbox('Select Universe:', universe, index=5)  # Default value is 'N75
 
 # Date Picker for Lookback Start Date
 selected_date = st.date_input("Select Lookback Starting Date", datetime.today())
-dt2 = datetime.strptime(str(selected_date), "%Y-%m-%d").strftime('%d-%m-%Y')
+dt2 = datetime.strptime(str(selected_date), "%d-%m-%Y").strftime('%d-%m-%Y')
 
 # Displaying Date Range Information
 dates = {
