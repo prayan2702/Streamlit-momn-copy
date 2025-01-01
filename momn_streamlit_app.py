@@ -11,6 +11,8 @@ from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.styles.borders import Border, Side
 from openpyxl import load_workbook
 
+def main():
+
 def getMedianVolume(data):
 	return(round(data.median(),0))
 
@@ -747,6 +749,6 @@ if start_button:
 
     # After the spinner ends, show success message
     st.success("Portfolio Rebalancing completed!")
-
+main()
 #***************************************************************
 
