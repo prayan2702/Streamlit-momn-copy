@@ -749,6 +749,7 @@ if start_button:
 
     # After the spinner ends, show success message
     st.success("Portfolio Rebalancing completed!")
-main()
+if __name__ == "__main__":
+  main()
 #***************************************************************
 
