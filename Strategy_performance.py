@@ -135,4 +135,6 @@ def calculate_performance(return_type):
 performance = calculate_performance(return_type)
 if performance is not None:
     st.sidebar.write(f"{return_type} Performance: {performance:.2f}%")
-main()
+
+if __name__ == "__main__":
+  main()
