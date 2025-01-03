@@ -1,17 +1,21 @@
 import streamlit as st
-import streamlit_navigation as nav
+from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title="Portfolio", layout="wide")
 
 # Define the pages in the app
-pages = [
-    st.StreamlitPage(name="Momentum Ranking", content=lambda: exec(open("momn_streamlit_app.py").read())),
-    st.StreamlitPage(name="Strategy Performance", content=lambda: exec(open("Strategy_performance.py").read())),
-    st.StreamlitPage(name="Strategy Tearsheet", content=lambda: exec(open("strategy-tearsheet.py").read())),
-]
+pages = {
+    "Momentum Ranking": "momn_streamlit_app.py",
+    "Strategy Performance": "Strategy_performance.py",
+    "Strategy Tearsheet": "strategy-tearsheet.py",
+}
 
 # Create a navigation bar
-pg = nav.navigation(pages, default="Momentum Ranking")
+with st.sidebar:
+    selected = option_menu("Portfolio", list(pages.keys()), 
+        icons=['house', 'speedometer2','book'], menu_icon="cast", default_index=0)
 
-# Run the navigation bar
-pg.run()
+# Run the selected page
+if selected in pages:
+    file = pages[selected]
+    exec(open(file).read())
